@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import './App.css';
+import GrowthPrimer from './growthprimer.js';
 
 function App() {
   const [currentView, setCurrentView] = useState('home');
@@ -124,17 +125,7 @@ function App() {
 
   // Show Primer
   if (currentView === 'primer') {
-    // Uncomment this line after creating GrowthPrimer.js
-    // return <GrowthPrimer />;
-    
-    // For now, show placeholder
-    return (
-      <div className="App">
-        <h1>Growth Primer</h1>
-        <p>Primer component will go here</p>
-        <button onClick={() => setCurrentView('home')}>Back to Home</button>
-      </div>
-    );
+    return <GrowthPrimer />;
   }
 
   // Show Diagnostic (your existing diagnostic code)
@@ -164,9 +155,9 @@ function App() {
         <div>
           <h2>{currentQ.question}</h2>
           <p style={{color: '#666'}}>{currentQ.why}</p>
-          {currentQ.options.map((option, idx) => (
+          {currentQ.options.map((option) => (
             <button 
-              key={idx}
+              key={option}
               onClick={() => handleAnswer(option)}
               style={{
                 display: 'block',
@@ -189,6 +180,8 @@ function App() {
       </div>
     );
   }
+  // Add this at the end of your App component:
+  return null;
 }
 
 export default App;

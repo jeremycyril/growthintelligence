@@ -15,3 +15,7 @@ root.render(
 // to log results (for example: reportWebVitals(console.log))
 // or send to an analytics endpoint. Learn more: https://bit.ly/CRA-vitals
 reportWebVitals();
+
+window.addEventListener('unhandledrejection', event => {
+  console.error('UNHANDLED PROMISE REJECTION:', event.reason);
+});
